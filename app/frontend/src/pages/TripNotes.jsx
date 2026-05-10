@@ -81,7 +81,7 @@ export default function TripNotes() {
     filtered.length === 0 ? (
         <SkeuoCard inset className="text-center text-sandy-700 py-10">No notes yet — start capturing your memories.</SkeuoCard>
         ) : filtered.map((n) => (
-            <div key={n.id} data-testid={`note-${n.id}`} className="rounded-2xl skeuo-paper shadow-[6px_6px_12px_rgba(176,152,122,0.35),-6px_-6px_12px_rgba(255,255,255,0.85)] p-6 relative">
+            <div key={n.id} data-testid={`note-${n.id}`} className="rounded-2xl skeuo-paper shadow-skeuo-raised p-6 relative">
         <div className="flex items-start justify-between gap-3">
         <div className="flex-1">
         <div className="flex flex-wrap items-center gap-2 mb-2">

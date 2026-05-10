@@ -63,7 +63,7 @@ export default function TripListing() {
             ) : grouped[s.key].map((t) => (
               <Link key={t.id} to={`/trips/${t.id}`}>
                 <SkeuoCard className="!p-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 hover:translate-y-[1px] transition-all">
-                  <img src={t.cover_image} alt={t.title} className="w-full sm:w-44 h-32 rounded-xl object-cover shadow-[inset_2px_2px_4px_rgba(176,152,122,0.4)]" />
+                  <img src={t.cover_image} alt={t.title} className="w-full sm:w-44 h-32 rounded-xl object-cover shadow-skeuo-inset-sm" />
                   <div className="flex-1">
                     <div className="font-bold text-xl text-sandy-900">{t.title}</div>
                     <p className="text-sm text-sandy-700 mt-1">{t.description}</p>

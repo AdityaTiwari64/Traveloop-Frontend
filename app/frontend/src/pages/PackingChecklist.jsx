@@ -61,8 +61,8 @@ export default function PackingChecklist() {
         </div>
     <div className="mt-5">
         <div className="flex justify-between text-sm text-sandy-800 mb-2"><span>Progress</span><span>{done}/{total} · {pct}%</span></div>
-            <div className="h-4 rounded-full shadow-[inset_2px_2px_4px_rgba(176,152,122,0.4),inset_-2px_-2px_4px_rgba(255,255,255,0.7)] bg-surface-main overflow-hidden">
-                <div className="h-full bg-ocean-500 shadow-[inset_2px_2px_4px_rgba(126,182,255,0.5)] transition-all" style={{ width: `${pct}%` }} />
+            <div className="h-4 rounded-full shadow-skeuo-inset bg-surface-main overflow-hidden">
+                <div className="h-full bg-ocean-600 shadow-skeuo-ocean-pressed transition-all" style={{ width: `${pct}%` }} />
           </div>
         </div>
       </SkeuoCard>
@@ -90,8 +90,8 @@ export default function PackingChecklist() {
             <div className="space-y-2">
         {
             list.map((it) => (
-                <div key={it.id} data-testid={`item-${it.id}`} className="flex items-center gap-3 p-3 rounded-xl bg-surface-main shadow-[inset_2px_2px_4px_rgba(176,152,122,0.3),inset_-2px_-2px_4px_rgba(255,255,255,0.6)]">
-            <button onClick={() => toggle(it)} className={`w-7 h-7 rounded-lg grid place-items-center transition-all ${it.checked ?"bg-ocean-500 shadow-[inset_2px_2px_4px_rgba(44,108,176,0.6)]" : "bg-surface-card shadow-[3px_3px_6px_rgba(176,152,122,0.35),-3px_-3px_6px_rgba(255,255,255,0.8)]"}`}>
+                <div key={it.id} data-testid={`item-${it.id}`} className="flex items-center gap-3 p-3 rounded-xl bg-surface-main shadow-skeuo-inset-sm">
+            <button onClick={() => toggle(it)} className={`w-7 h-7 rounded-lg grid place-items-center transition-all ${it.checked ?"bg-ocean-600 shadow-skeuo-ocean-pressed" : "bg-surface-card shadow-skeuo-raised-sm"}`}>
         {
             it.checked && <Check className="w-4 h-4 text-white" strokeWidth={3} />}
                     </button>

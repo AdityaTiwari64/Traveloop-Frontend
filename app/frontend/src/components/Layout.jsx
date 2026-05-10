@@ -25,13 +25,10 @@ export default function Layout({ children }) {
         <div className="min-h-screen skeuo-surface">
             <header className="sticky top-0 z-50 backdrop-blur-xl bg-surface-main/85 border-b border-sandy-200/50">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-6">
-                    <Link to="/" data-testid="brand-logo" className="flex items-center gap-3 group">
-                        <div className="w-11 h-11 rounded-2xl bg-ocean-600 grid place-items-center shadow-skeuo-ocean group-hover:translate-y-[1px] transition-all">
-                            <Compass className="w-6 h-6 text-white" strokeWidth={2.4} />
-            </div>
+                    <Link to="/" data-testid="brand-logo" className="flex items-center gap-1 group">
             <div>
               <div className="font-outfit font-bold text-2xl text-sandy-900 leading-none">Traveloop</div>
-              <div className="text-[10px] tracking-[0.2em] uppercase text-sandy-600">Plan · Wander · Remember</div>
+              <div className="text-[10px] tracking-[0.2em] uppercase text-accent-600 font-bold">Plan · Wander · Remember</div>
             </div>
           </Link>
 

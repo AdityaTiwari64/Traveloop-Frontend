@@ -61,9 +61,9 @@ export default function Search() {
     filtered.length === 0 ? (
         <SkeuoCard inset className="text-center text-sandy-700 py-10">No results. Try a different city or term.</SkeuoCard>
         ) : filtered.map((a) => (
-            <SkeuoCard key={a.id} className="!p-4 flex gap-4 items-center hover:translate-y-[1px] active:shadow-[inset_4px_4px_8px_rgba(176,152,122,0.4)] transition-all">
+            <SkeuoCard key={a.id} className="!p-4 flex gap-4 items-center hover:translate-y-[1px] active:shadow-skeuo-inset-sm transition-all">
             {
-                a.image && <img src={a.image} alt={a.name} className="w-28 h-20 rounded-xl object-cover shadow-[inset_2px_2px_4px_rgba(176,152,122,0.4)] hidden sm:block" />}
+                a.image && <img src={a.image} alt={a.name} className="w-28 h-20 rounded-xl object-cover shadow-skeuo-inset-sm hidden sm:block" />}
                     <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
                     <div className="font-bold text-sandy-900 truncate">{a.name}</div>

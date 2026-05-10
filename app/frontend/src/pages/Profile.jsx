@@ -36,7 +36,7 @@ export default function Profile() {
                 <div className="space-y-8" data-testid="profile-page">
                     <SkeuoCard className="flex flex-col md:flex-row gap-8 items-start">
                         <img src={
-                            user.photo || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"} alt="me" className="w-40 h-40 rounded-2xl object-cover shadow-[inset_2px_2px_4px_rgba(176,152,122,0.4),6px_6px_12px_rgba(176,152,122,0.35)]" />
+                            user.photo || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"} alt="me" className="w-40 h-40 rounded-2xl object-cover shadow-skeuo-raised" />
                                 <div className="flex-1 w-full">
           {!editing?(
             <>

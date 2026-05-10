@@ -45,8 +45,8 @@ export default function Register() {
                 <SkeuoCard className="p-8 sm:p-10" data-testid="register-card">
                     <div className="flex flex-col items-center mb-6">
                         <div className="relative">
-                            <img src={ form.photo } alt="avatar" className="w-24 h-24 rounded-full object-cover shadow-[inset_2px_2px_4px_rgba(176,152,122,0.4),6px_6px_12px_rgba(176,152,122,0.35)]" />
-                                <div className="absolute -bottom-1 -right-1 bg-ocean-500 rounded-full p-2 shadow-[3px_3px_6px_rgba(44,108,176,0.45)]">
+                            <img src={form.photo} alt="avatar" className="w-24 h-24 rounded-full object-cover shadow-skeuo-raised" />
+                                <div className="absolute -bottom-1 -right-1 bg-ocean-600 rounded-full p-2 shadow-skeuo-ocean">
                                     <Camera className="w-4 h-4 text-white" />
               </div>
             </div>
@@ -57,7 +57,7 @@ export default function Register() {
         AVATAR_OPTIONS.map((url) => (
             <button key={url} type="button" onClick={() => setForm({ ...form, photo: url })}
                   className={`w-12 h-12 rounded-full overflow-hidden transition-all ${form.photo === url ?"ring-4 ring-ocean-400" : "opacity-70 hover:opacity-100"}`}>
-        <img src={ url } alt="" className="w-full h-full object-cover" />
+        <img src={url} alt="" className="w-full h-full object-cover" />
                 </button>
               ))
     }
@@ -74,7 +74,7 @@ export default function Register() {
                                     <div className="sm:col-span-2"><label className="text-sm font-semibold text-sandy-800">Password</label><SkeuoInput data-testid="reg-password" type="password" value={form.password} onChange={onChange("password")} required /></div>
                                         <div className="sm:col-span-2"><label className="text-sm font-semibold text-sandy-800">Additional Information</label><SkeuoTextarea data-testid="reg-additional" rows={3} value={form.additional_info} onChange={onChange("additional_info")} placeholder="Travel style, dietary needs, dream destinations..." /></div>
     {
-        err && <div className="sm:col-span-2 text-sm text-red-700 bg-red-50/60 rounded-lg px-3 py-2 shadow-[inset_2px_2px_4px_rgba(150,60,50,0.2)]">{err}</div>}
+        err && <div className="sm:col-span-2 text-sm text-red-700 bg-red-50/60 rounded-lg px-3 py-2 shadow-skeuo-inset-sm">{err}</div>}
             <div className="sm:col-span-2 flex justify-between items-center pt-2">
                 <Link to="/login" className="text-ocean-700 font-semibold text-sm">Have an account? Sign in</Link>
                     <SkeuoButton type="submit" data-testid="reg-submit" disabled={submitting}>{submitting ? "Creating..." : "Register User"}</SkeuoButton>

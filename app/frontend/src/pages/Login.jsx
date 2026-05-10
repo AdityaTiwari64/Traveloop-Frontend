@@ -36,11 +36,11 @@ export default function Login() {
 
                     <SkeuoCard className="relative w-full max-w-md p-10" data-testid="login-card">
                         <div className="flex flex-col items-center mb-8">
-                            <div className="w-20 h-20 rounded-full bg-surface-card grid place-items-center shadow-[inset_4px_4px_8px_rgba(176,152,122,0.4),inset_-4px_-4px_8px_rgba(255,255,255,0.7)] mb-4">
-                                <Compass className="w-10 h-10 text-ocean-700" strokeWidth={2} />
-          </div>
-        <h1 className="text-3xl font-bold text-sandy-900">Welcome to Traveloop</h1>
-            <p className="text-sandy-700 text-sm mt-1">Sign in to plan your next escape.</p>
+                            <div className="text-center mb-4">
+                                <div className="font-outfit font-bold text-4xl text-sandy-900 leading-none">Traveloop</div>
+                                <div className="text-xs tracking-[0.3em] uppercase text-accent-600 font-bold mt-2">Plan · Wander · Remember</div>
+                            </div>
+          <h1 className="text-xl font-medium text-sandy-600">Welcome back</h1>
         </div>
 
         <form onSubmit={onSubmit} className="space-y-5">

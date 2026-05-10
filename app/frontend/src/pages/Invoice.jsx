@@ -65,7 +65,7 @@ Grand Total: $${ grand } `;
         <SkeuoCard className="lg:col-span-2 !p-8 skeuo-paper relative">
           <div className="flex items-start justify-between mb-6 flex-wrap gap-4">
             <div className="flex items-start gap-4">
-              <div className="w-16 h-16 rounded-2xl bg-ocean-500 grid place-items-center shadow-[4px_4px_8px_rgba(44,108,176,0.45)]">
+              <div className="w-16 h-16 rounded-2xl bg-ocean-600 grid place-items-center shadow-skeuo-ocean">
                 <Receipt className="w-8 h-8 text-white" />
               </div>
               <div>
@@ -84,7 +84,7 @@ Grand Total: $${ grand } `;
             </div>
           </div>
 
-          <div className="overflow-x-auto rounded-xl shadow-[inset_2px_2px_4px_rgba(176,152,122,0.3)] bg-surface-main">
+          <div className="overflow-x-auto rounded-xl shadow-skeuo-inset-sm bg-surface-main">
             <table className="w-full text-sm">
               <thead className="text-left text-sandy-700 uppercase text-xs bg-sandy-200/50">
                 <tr><th className="px-4 py-3">#</th><th>Category</th><th>Description</th><th>Qty</th><th>Unit Cost</th><th className="text-right pr-4">Amount</th><th></th></tr>

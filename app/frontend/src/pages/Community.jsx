@@ -69,7 +69,7 @@ export default function Community() {
     posts.map((p) => (
         <SkeuoCard key={p.id} className="!p-5 flex gap-4">
     <img src={
-        p.user_avatar || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"} alt="" className="w-14 h-14 rounded-full object-cover shadow-[inset_2px_2px_4px_rgba(176,152,122,0.4)] flex-shrink-0" />
+        p.user_avatar || "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200"} alt="" className="w-14 h-14 rounded-full object-cover shadow-skeuo-inset-sm flex-shrink-0" />
             <div className="flex-1 min-w-0">
             <div className="flex items-center justify-between flex-wrap gap-2">
             <div>
@@ -82,11 +82,11 @@ export default function Community() {
                 </div>
               </div>
         {
-            p.image && <img src={p.image} alt="" className="w-full h-48 rounded-xl object-cover mt-3 shadow-[inset_2px_2px_4px_rgba(176,152,122,0.4)]" />}
+            p.image && <img src={p.image} alt="" className="w-full h-48 rounded-xl object-cover mt-3 shadow-skeuo-inset-sm" />}
                 <p className="text-sm text-sandy-800 mt-3 leading-relaxed">{p.content}</p>
                 <div className="flex items-center justify-between mt-3">
                 <button onClick={ () => like(p.id)
-} data-testid={ `like-${p.id}` } className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-sandy-100 text-sandy-800 shadow-[3px_3px_6px_rgba(176,152,122,0.35),-3px_-3px_6px_rgba(255,255,255,0.8)] hover:translate-y-[1px] text-sm">
+} data-testid={ `like-${p.id}` } className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-sandy-100 text-sandy-800 shadow-skeuo-raised-sm hover:translate-y-[1px] text-sm">
     <Heart className="w-4 h-4 text-ocean-700" />{p.likes}
                 </button>
               </div>

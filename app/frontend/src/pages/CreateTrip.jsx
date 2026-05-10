@@ -87,10 +87,10 @@ export default function CreateTrip() {
               const isPicked = picked.find((x) => x.id === d.id);
               return (
                 <button type="button" key={d.id} onClick={() => togglePick(d)} data-testid={`suggest-${d.name}`}
-                  className={`text-left rounded-2xl overflow-hidden transition-all ${isPicked ? "shadow-[inset_4px_4px_8px_rgba(44,108,176,0.5),inset_-4px_-4px_8px_rgba(126,182,255,0.3)] bg-ocean-100" : "bg-surface-card shadow-[6px_6px_12px_rgba(176,152,122,0.35),-6px_-6px_12px_rgba(255,255,255,0.85)] hover:translate-y-[1px]"}`}>
+                  className={`text-left rounded-2xl overflow-hidden transition-all ${isPicked ? "shadow-skeuo-ocean-pressed bg-ocean-100" : "bg-surface-card shadow-skeuo-raised hover:translate-y-[1px]"}`}>
                   <div className="relative h-32 overflow-hidden">
                     <img src={d.image} alt={d.name} className="w-full h-full object-cover" />
-                    {isPicked && <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-ocean-500 grid place-items-center shadow-md"><Check className="w-5 h-5 text-white" /></div>}
+                    {isPicked && <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-ocean-600 grid place-items-center shadow-md"><Check className="w-5 h-5 text-white" /></div>}
                   </div>
                   <div className="p-3">
                     <div className="font-semibold text-sandy-900 text-sm">{d.name}</div>

@@ -5,7 +5,7 @@ import { Users as UsersIcon, MapPin, Activity, BarChart3, TrendingUp, Trash2, Se
 import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, ResponsiveContainer, XAxis, YAxis, Tooltip, Legend } from "recharts";
 import { toast } from "sonner";
 
-const COLORS = ["#4A90E2", "#7EB6FF", "#2C6CB0", "#D4BFA6", "#B0987A"];
+const COLORS = ["#6366F1", "#818CF8", "#4F46E5", "#CBD5E1", "#94A3B8"];
 
 export default function AdminPanel() {
     const [tab, setTab] = useState("users");
@@ -63,7 +63,7 @@ export default function AdminPanel() {
                             <div className="text-sandy-700 text-xs uppercase tracking-wide font-bold">{s.label}</div>
                             <div className="text-3xl font-bold text-sandy-900 mt-1">{s.value}</div>
                 </div>
-                                <div className="w-12 h-12 rounded-xl bg-ocean-100 grid place-items-center shadow-[inset_2px_2px_4px_rgba(44,108,176,0.18)]">
+                                <div className="w-12 h-12 rounded-xl bg-ocean-100 grid place-items-center shadow-skeuo-inset-sm">
                             <s.icon className="w-6 h-6 text-ocean-700" />
                 </div>
               </div>
