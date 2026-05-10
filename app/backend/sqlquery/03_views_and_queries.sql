@@ -11,7 +11,9 @@ SELECT
     t.id,
     t.user_id,
     u.name                              AS user_name,
-    t.name                              AS trip_name,
+    t.name                              AS title,           -- Alias for frontend compatibility
+    t.description,                                          -- Included for frontend
+    t.cover_photo                       AS cover_image,    -- Alias for frontend
     t.start_date,
     t.end_date,
     (t.end_date - t.start_date)         AS total_days,
@@ -24,7 +26,7 @@ FROM trips t
 JOIN users u         ON u.id = t.user_id
 LEFT JOIN trip_stops ts ON ts.trip_id = t.id
 LEFT JOIN cities c   ON c.id = ts.city_id
-GROUP BY t.id, u.name;
+GROUP BY t.id, u.name, t.name, t.description, t.cover_photo;
 
 -- ============================================================
 -- VIEW 2: Itinerary View (Screen 6: Itinerary View)
@@ -33,18 +35,18 @@ GROUP BY t.id, u.name;
 CREATE VIEW v_itinerary AS
 SELECT
     t.id                                AS trip_id,
-    t.name                              AS trip_name,
+    t.name                              AS title,           -- Alias for frontend
     ts.stop_order,
     c.name                              AS city,
     c.country,
-    ts.arrival_date,
-    ts.departure_date,
+    ts.arrival_date                     AS date_from,      -- Alias for frontend
+    ts.departure_date                   AS date_to,        -- Alias for frontend
     sa.scheduled_date,
     sa.start_time,
     sa.end_time,
     a.name                              AS activity,
     a.category,
-    COALESCE(sa.cost_override, a.cost_per_person) AS cost,
+    COALESCE(sa.cost_override, a.cost_per_person) AS budget, -- Alias for frontend
     a.duration_hours
 FROM trips t
 JOIN trip_stops ts      ON ts.trip_id    = t.id
@@ -59,7 +61,7 @@ ORDER BY ts.stop_order, sa.scheduled_date, sa.start_time;
 CREATE VIEW v_budget_breakdown AS
 SELECT
     t.id                                AS trip_id,
-    t.name                              AS trip_name,
+    t.name                              AS title,           -- Alias for frontend
     tb.total_budget,
     tb.transport_cost,
     tb.stay_cost,
@@ -90,14 +92,15 @@ SELECT
     c.cost_index,
     c.popularity_score,
     c.description,
-    c.cover_image,
+    c.cover_image                       AS image,          -- Alias for frontend
     c.currency,
     c.timezone,
     COUNT(a.id)                         AS activity_count,
-    ROUND(AVG(a.cost_per_person), 2)    AS avg_activity_cost,
-    ROUND(AVG(a.rating), 1)             AS avg_activity_rating
+    ROUND(AVG(a.cost_per_person), 2)    AS avg_cost,       -- Alias for frontend
+    ROUND(AVG(a.rating), 1)             AS rating          -- Alias for frontend
 FROM cities c
 LEFT JOIN activities a ON a.city_id = c.id
+GROUP BY c.id;
 GROUP BY c.id;
 
 -- ============================================================

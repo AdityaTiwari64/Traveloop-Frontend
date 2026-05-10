@@ -8,6 +8,22 @@ const api = axios.create({
     withCredentials: true,
 });
 
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem("traveloop_token");
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
+
+// Auto-unwrap backend data property if it exists
+api.interceptors.response.use((response) => {
+    if (response.data && response.data.success && response.data.data !== undefined) {
+        return { ...response, data: response.data.data };
+    }
+    return response;
+});
+
 export default api;
 
 export function formatApiError(detail) {

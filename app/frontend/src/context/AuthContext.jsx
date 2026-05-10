@@ -17,19 +17,29 @@ export function AuthProvider({ children }) {
 
     const login = async (email, password) => {
         const { data } = await api.post("/auth/login", { email, password });
-    setUser(data.user);
+        if (data.data?.accessToken) {
+            localStorage.setItem("traveloop_token", data.data.accessToken);
+        }
+        setUser(data.user);
         return data.user;
     };
 
     const register = async (payload) => {
         const { data } = await api.post("/auth/register", payload);
-    setUser(data.user);
+        if (data.data?.accessToken) {
+            localStorage.setItem("traveloop_token", data.data.accessToken);
+        }
+        setUser(data.user);
         return data.user;
     };
 
     const logout = async () => {
-        await api.post("/auth/logout");
-    setUser(false);
+        try {
+            await api.post("/auth/logout");
+        } finally {
+            localStorage.removeItem("traveloop_token");
+            setUser(false);
+        }
     };
 
     const refresh = async () => {
