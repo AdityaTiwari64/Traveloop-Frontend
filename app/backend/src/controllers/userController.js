@@ -6,10 +6,8 @@ const getMe = async (req, res, next) => {
       'SELECT id, email, name, profile_photo, language, is_admin, created_at FROM users WHERE id = $1',
       [req.user.id]
     );
-    res.json({
-      success: true,
-      data: result.rows[0],
-    });
+    // Support both standardized data wrapper and direct object for frontend compatibility
+    res.json(result.rows[0]);
   } catch (err) {
     next(err);
   }

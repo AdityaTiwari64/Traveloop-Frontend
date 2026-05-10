@@ -5,6 +5,11 @@ const { generateAccessToken, generateRefreshToken } = require('../utils/token');
 
 const register = async (req, res, next) => {
   try {
+    // Flatten first_name and last_name into name if present
+    if (req.body.first_name || req.body.last_name) {
+      req.body.name = `${req.body.first_name || ''} ${req.body.last_name || ''}`.trim();
+    }
+
     const validatedData = registerSchema.parse(req.body);
     const { email, password, name } = validatedData;
 
@@ -29,6 +34,7 @@ const register = async (req, res, next) => {
 
     res.status(201).json({
       success: true,
+      user, // Compatibility with frontend setUser(data.user)
       data: { user, accessToken, refreshToken },
       message: 'User registered successfully',
     });
@@ -61,6 +67,7 @@ const login = async (req, res, next) => {
 
     res.json({
       success: true,
+      user: userWithoutPassword, // Compatibility with frontend setUser(data.user)
       data: { user: userWithoutPassword, accessToken, refreshToken },
       message: 'Login successful',
     });
